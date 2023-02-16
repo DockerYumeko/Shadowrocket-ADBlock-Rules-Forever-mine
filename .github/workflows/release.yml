@@ -46,10 +46,10 @@ jobs:
       - name: Move files
         run: |
           cd build || exit 1
-          cp *.conf ../release/
-          cp -r figure ../release/
-          cp LICENSE ../release/
-          cp readme.md ../release/
+          cp *.conf ../release-me/
+          cp -r figure ../release-me/
+          cp LICENSE ../release-me/
+          cp readme.md ../release-me/
         
       - name: Remove commits
         run: |
@@ -59,6 +59,6 @@ jobs:
           git checkout --orphan latest_branch
           git add -A
           git commit -am "Nightly build"
-          git branch -D release
-          git branch -m release
-          git push -f origin release
+          git branch -D release-me
+          git branch -m release-me
+          git push -f origin release-me
